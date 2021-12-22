@@ -32,7 +32,7 @@
                           <Component id="jTextFieldID" alignment="0" pref="298" max="32767" attributes="0"/>
                           <Component id="jTextFieldCname" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextFieldCreditHours" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jComboBoxDept" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jComboBoxDept" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                   </Group>
@@ -116,6 +116,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCreditHours">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCreditHoursActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -136,6 +139,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxDeptActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

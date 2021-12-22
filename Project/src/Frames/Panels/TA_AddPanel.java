@@ -5,13 +5,9 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.TeachingAssistant;
+import Classes.Main;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+
 public class TA_AddPanel extends javax.swing.JPanel {
 
     /**
@@ -217,41 +213,6 @@ public class TA_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldAcademicHours.getText().equals("") && !jTextFieldSalary.getText().equals("")) {
-
-            TeachingAssistant x = new TeachingAssistant();
-            x.setID(Integer.parseInt(jTextFieldID.getText()));
-            x.setFName(jTextFieldFname.getText());
-            x.setLName(jTextFieldLname.getText());
-            x.setUserName(jTextFieldUserName.getText());
-            if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                x.setPass(jPasswordField1.getText());
-            }
-
-            x.setAge(Integer.parseInt(jTextFieldAge.getText()));
-
-            if (jComboBoxDept.getSelectedItem().equals("CS")) {
-                x.setDept(Main.cs);
-            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
-                x.setDept(Main.is);
-            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
-                x.setDept(Main.it);
-            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
-                x.setDept(Main.sw);
-            }
-
-            x.setacademicHours(jTextFieldAcademicHours.getText());
-            x.setSalary(Double.parseDouble(jTextFieldSalary.getText()));
-
-            if (x.addTA()) {
-                jLabelSucessOrFail.setText("Added Successfully ... !");
-                resetPanelData();
-            } else {
-                jLabelSucessOrFail.setText("Failed to insert ... !");
-            }
-        } else {
-            jLabelSucessOrFail.setText("Missing required Fields ... !  Please, complete them before submit ...!");
-        }
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 

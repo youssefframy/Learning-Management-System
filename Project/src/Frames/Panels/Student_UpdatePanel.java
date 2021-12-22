@@ -5,8 +5,7 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.Student;
+import Classes.Main;
 
 /**
  *
@@ -244,84 +243,17 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldGPA.getText().equals("")) {
-
-            Student x = new Student();
-            x.setID(Integer.parseInt(jTextFieldID.getText()));
-            x.setFName(jTextFieldFname.getText());
-            x.setLName(jTextFieldLname.getText());
-            x.setUserName(jTextFieldUserName.getText());
-            if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                x.setPass(jPasswordField1.getText());
-            }
-
-            x.setAge(Integer.parseInt(jTextFieldAge.getText()));
-
-            if (jComboBoxLevels.getSelectedItem().equals("Level 1")) {
-                x.setLevel(1);
-            } else if (jComboBoxLevels.getSelectedItem().equals("Level 2")) {
-                x.setLevel(2);
-            } else if (jComboBoxLevels.getSelectedItem().equals("Level 3")) {
-                x.setLevel(3);
-            } else if (jComboBoxLevels.getSelectedItem().equals("Level 4")) {
-                x.setLevel(4);
-            }
-
-            if (jComboBoxDept.getSelectedItem().equals("General")) {
-                x.setDept(Main.general);
-            } else if (jComboBoxDept.getSelectedItem().equals("CS")) {
-                x.setDept(Main.cs);
-            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
-                x.setDept(Main.is);
-            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
-                x.setDept(Main.it);
-            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
-                x.setDept(Main.sw);
-            }
-
-            x.setGPA(Double.parseDouble(jTextFieldGPA.getText()));
-
-            if (x.updateStudent()) {
-                jLabelSucessOrFail.setText("Updated Successfully ... !");
-                resetPanelData();
-            } else {
-                jLabelSucessOrFail.setText("Failed to Update ... !");
-            }
-        } else {
-            jLabelSucessOrFail.setText("Missing required Fields ... !  Please, complete them before submit ...!");
-        }
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldSearchKey.getText().equals("")) {
-            Student x = new Student();
-            Student returned = x.searchStudentById(Integer.parseInt(jTextFieldSearchKey.getText()));
-            if (returned.getID() > 0) {
-                setPanelData(returned);
-            } else {
-                jLabelSucessOrFail.setText("Not Found ...!");
-            }
-        } else {
-            jLabelSucessOrFail.setText("Missing required Fields ... !  Please, Search By ID before submit ...!");
-        }
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldSearchKey.getText().equals("")) {
-            Student x = new Student();
-            if (x.deleteStudent(Integer.parseInt(jTextFieldSearchKey.getText()))) {
-                jLabelSucessOrFail.setText("Deleted Successfully ... !");
-                resetPanelData();
-            } else {
-                jLabelSucessOrFail.setText("Failed to delete ... !");
-            }
-        } else {
-            jLabelSucessOrFail.setText("Missing required Fields ... !  Please, Search By ID before submit ...!");
-        }
+
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     protected void resetPanelData() {
@@ -339,39 +271,6 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     }
 
-    protected void setPanelData(Student x) {
-        jTextFieldID.setText("" + x.getID());
-        jTextFieldFname.setText("" + x.getFName());
-        jTextFieldLname.setText("" + x.getLName());
-        jTextFieldUserName.setText("" + x.getuserName());
-        jPasswordField1.setText("" + x.getPass());
-        jPasswordField2.setText("" + x.getPass());
-        jTextFieldAge.setText("" + x.getAge());
-        jTextFieldGPA.setText("" + x.getGPA());
-
-        if (x.getLevel() == 1) {
-            jComboBoxLevels.setSelectedIndex(0);
-        } else if (x.getLevel() == 2) {
-            jComboBoxLevels.setSelectedIndex(1);
-        } else if (x.getLevel() == 3) {
-            jComboBoxLevels.setSelectedIndex(2);
-        } else if (x.getLevel() == 4) {
-            jComboBoxLevels.setSelectedIndex(3);
-        }
-
-        if (x.myDept.getDeptName().equals("General")) {
-            jComboBoxDept.setSelectedIndex(0);
-        } else if (x.myDept.getDeptName().equals("CS")) {
-            jComboBoxDept.setSelectedIndex(1);
-        } else if (x.myDept.getDeptName().equals("IS")) {
-            jComboBoxDept.setSelectedIndex(2);
-        } else if (x.myDept.getDeptName().equals("IT")) {
-            jComboBoxDept.setSelectedIndex(3);
-        } else if (x.myDept.getDeptName().equals("SW")) {
-            jComboBoxDept.setSelectedIndex(4);
-        }
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;

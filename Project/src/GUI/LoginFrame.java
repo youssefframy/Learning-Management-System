@@ -1,8 +1,5 @@
 
 package GUI;
-import FCIHCaseStudy.Admin;
-import FCIHCaseStudy.Person;
-import FCIHCaseStudy.Student;
 import javax.swing.JOptionPane;
 
 

@@ -1,7 +1,6 @@
 
 package GUI;
 
-import FCIHCaseStudy.Student;
 import Frames.Admin_CoursesFrame;
 import Frames.Admin_ProfessorsFrame;
 import Frames.Admin_StudentsFrame;
@@ -9,7 +8,6 @@ import Frames.Admin_TAsFrame;
 import Frames.Panels.ChartPanel;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 
 public class AdminDashboard extends javax.swing.JFrame {
@@ -43,7 +41,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         menuTAs = new javax.swing.JMenuItem();
         mainmenuCourses = new javax.swing.JMenu();
         menuCourses = new javax.swing.JMenuItem();
-        jMenuExams = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,9 +122,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(mainmenuCourses);
 
-        jMenuExams.setText("Exams");
-        jMenuBar1.add(jMenuExams);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,26 +182,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         f.setLocation(250, 100);
         f.setSize(600, 550);
 
-        Student x = new Student();
-        ArrayList<Student> s = x.listStudents();
-        double[] values = new double[25];
-        String[] names = new String[25];
-//            for (int i = 0; i < s.size(); i++) {
-//                values[i] = s.get(i).getGPA();
-//                names[i] = s.get(i).getFName() + " " + s.get(i).getLName();
-//            }
-        for (int i = 0; i < 25; i++) {
-
-            names[i] = "Item " + i;
-            if (i % 2 == 0) {
-                values[i] = i * 5 + 1;
-            } else {
-                values[i] = i * 3 + 2;
-            }
-        }
-
-        f.getContentPane().add(new ChartPanel(values, names, "GPA Report"));
-        f.setVisible(true);
     }//GEN-LAST:event_menuReportActionPerformed
 
     /**
@@ -248,7 +222,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuExams;
     private javax.swing.JMenu mainmenuCourses;
     private javax.swing.JMenuItem menuCourses;
     private javax.swing.JMenu menuFile;

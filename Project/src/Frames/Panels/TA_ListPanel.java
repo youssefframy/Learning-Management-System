@@ -5,15 +5,10 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.TeachingAssistant;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+
 public class TA_ListPanel extends javax.swing.JPanel {
 
     /**

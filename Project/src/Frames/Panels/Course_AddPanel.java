@@ -5,8 +5,7 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.Course;
+import Classes.Main;
 
 
 public class Course_AddPanel extends javax.swing.JPanel {
@@ -50,10 +49,21 @@ public class Course_AddPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Credit Hours");
 
+        jTextFieldCreditHours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCreditHoursActionPerformed(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
         jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDeptActionPerformed(evt);
+            }
+        });
 
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit.setText("Add Course");
@@ -82,7 +92,7 @@ public class Course_AddPanel extends javax.swing.JPanel {
                             .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                             .addComponent(jTextFieldCname)
                             .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxDept, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 60, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -119,34 +129,17 @@ public class Course_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldID.getText().equals("") && !jTextFieldCname.getText().equals("") && !jTextFieldCreditHours.getText().equals("")) {
 
-            Course x = new Course();
-            x.setCId(jTextFieldID.getText());
-            x.setCname(jTextFieldCname.getText());
-            x.setCreditHours(Integer.parseInt(jTextFieldCreditHours.getText()));
-
-            if (jComboBoxDept.getSelectedItem().equals("CS")) {
-                x.setDept(Main.cs);
-            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
-                x.setDept(Main.is);
-            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
-                x.setDept(Main.it);
-            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
-                x.setDept(Main.sw);
-            }
-
-            if (x.addCourse()) {
-                jLabelSucessOrFail.setText("Added the new course successfully");
-                resetPanelData();
-            } else {
-                jLabelSucessOrFail.setText("Somethin went wrong. Please Try again!");
-            }
-        } else {
-            jLabelSucessOrFail.setText("Missing required Fields. Please, complete them before submit.");
-        }
 
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void jComboBoxDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDeptActionPerformed
+
+    private void jTextFieldCreditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCreditHoursActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCreditHoursActionPerformed
 
     protected void resetPanelData() {
         jTextFieldID.setText("");

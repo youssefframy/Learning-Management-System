@@ -5,8 +5,7 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.TeachingAssistant;
+import Classes.Main;
 
 /**
  *

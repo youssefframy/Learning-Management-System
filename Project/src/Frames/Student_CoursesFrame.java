@@ -5,9 +5,11 @@
  */
 package Frames;
 
+import Frames.Panels.Assignment_ListPanel;
 import Frames.Panels.Course_AddPanel;
 import Frames.Panels.Course_ListPanel;
 import Frames.Panels.Course_UpdatePanel;
+import Frames.Panels.Lecture_ListPanel;
 import Frames.Panels.Student_Courses_RegisterPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -25,12 +27,16 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
 
     Course_ListPanel p1;
     Student_Courses_RegisterPanel p2;
+    Lecture_ListPanel p3;
+    Assignment_ListPanel p4;
 
     public Student_CoursesFrame() {
         initComponents();
         p1 = new Course_ListPanel();
         p2 = new Student_Courses_RegisterPanel();
-
+        p3 = new Lecture_ListPanel();
+        p4 = new Assignment_ListPanel();
+        
         DynamicPanal.setLayout(layout);
 
         GridBagConstraints c = new GridBagConstraints();
@@ -39,10 +45,13 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         
         DynamicPanal.add(p1, c);
         DynamicPanal.add(p2, c);
+        DynamicPanal.add(p3, c);
+        DynamicPanal.add(p4, c);
 
         p1.setVisible(true);
         p2.setVisible(false);
-
+        p3.setVisible(false);
+        p4.setVisible(false);
     }
 
     /**
@@ -58,6 +67,8 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         btnList = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnList1 = new javax.swing.JButton();
+        buttonList3 = new javax.swing.JButton();
         DynamicPanal = new javax.swing.JPanel();
 
         setClosable(true);
@@ -65,6 +76,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        btnList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnList.setText("List All Courses");
         btnList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +84,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Register Courses");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +95,22 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
+        btnList1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnList1.setText("List Assignments");
+        btnList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnList1ActionPerformed(evt);
+            }
+        });
+
+        buttonList3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        buttonList3.setText("List All Lectures");
+        buttonList3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonList3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -89,23 +118,29 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(buttonList3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnList1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(218, Short.MAX_VALUE)
+                .addContainerGap(200, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(btnList)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(jButton1)
-                .addGap(145, 145, 145))
+                .addGap(18, 18, 18)
+                .addComponent(buttonList3)
+                .addGap(18, 18, 18)
+                .addComponent(btnList1)
+                .addGap(114, 114, 114))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
@@ -114,11 +149,11 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         DynamicPanal.setLayout(DynamicPanalLayout);
         DynamicPanalLayout.setHorizontalGroup(
             DynamicPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 666, Short.MAX_VALUE)
+            .addGap(0, 665, Short.MAX_VALUE)
         );
         DynamicPanalLayout.setVerticalGroup(
             DynamicPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         getContentPane().add(DynamicPanal, java.awt.BorderLayout.CENTER);
@@ -130,18 +165,43 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         p1.setVisible(true);
         p2.setVisible(false);
+        p3.setVisible(false);
+        p4.setVisible(false);
 
     }//GEN-LAST:event_btnListActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        p2.setVisible(true);
         p1.setVisible(false);
+        p2.setVisible(true);
+        p3.setVisible(false);
+        p4.setVisible(false);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnList1ActionPerformed
+        // TODO add your handling code here:
+        p1.setVisible(false);
+        p2.setVisible(false);
+        p3.setVisible(false);
+        p4.setVisible(true);
+
+    }//GEN-LAST:event_btnList1ActionPerformed
+
+    private void buttonList3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonList3ActionPerformed
+        // TODO add your handling code here:
+        p1.setVisible(false);
+        p2.setVisible(false);
+        p3.setVisible(true);
+        p4.setVisible(false);
+
+    }//GEN-LAST:event_buttonList3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DynamicPanal;
     private javax.swing.JButton btnList;
+    private javax.swing.JButton btnList1;
+    private javax.swing.JButton buttonList3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

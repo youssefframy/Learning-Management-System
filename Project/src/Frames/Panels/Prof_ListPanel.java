@@ -5,8 +5,6 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.Professor;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 

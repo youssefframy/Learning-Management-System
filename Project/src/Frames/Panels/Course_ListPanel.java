@@ -5,8 +5,6 @@
  */
 package Frames.Panels;
 
-import FCIHCaseStudy.Main;
-import FCIHCaseStudy.Course;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,19 +74,6 @@ public class Course_ListPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[4];
 
-        Course c = new Course();
-        ArrayList<Course> courses = new ArrayList<Course>();
-
-        courses = c.listCourses();
-
-        for (Course x : courses) {
-            rowData[0] = x.getCId();
-            rowData[1] = x.getCname();
-            rowData[2] = x.getCreditHours();
-            rowData[3] = x.dept.getDeptName();
-
-            model.addRow(rowData);
-        }
 
     }
 
