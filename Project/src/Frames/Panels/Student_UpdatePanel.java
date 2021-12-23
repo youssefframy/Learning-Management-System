@@ -7,10 +7,7 @@ package Frames.Panels;
 
 import Classes.Main;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+
 public class Student_UpdatePanel extends javax.swing.JPanel {
 
     /**
@@ -243,6 +240,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 

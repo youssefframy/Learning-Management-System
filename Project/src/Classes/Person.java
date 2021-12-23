@@ -9,7 +9,7 @@ public abstract class Person {
     protected String lname;
     protected int age;
 
-    Department myDept = Main.general;
+    public Department myDept = Main.general;
 
     static MyException MyEX = new MyException();
 

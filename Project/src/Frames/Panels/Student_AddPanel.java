@@ -8,10 +8,7 @@ package Frames.Panels;
 import Classes.Main;
 import Classes.Student;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+
 public class Student_AddPanel extends javax.swing.JPanel {
 
     /**
