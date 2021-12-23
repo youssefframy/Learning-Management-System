@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+
 public class FileManger implements Serializable {
 
     public boolean write(String Query, String FilePath, boolean appendType) {

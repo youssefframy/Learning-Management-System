@@ -3,10 +3,7 @@ package Classes;
 import java.io.Serializable;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Tamer
- */
+
 public class MyException extends Exception implements Serializable {
 
     public MyException() {
