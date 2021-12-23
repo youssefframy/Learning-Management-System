@@ -155,36 +155,6 @@ public class FileManger implements Serializable {
 
             return (ArrayList<Object>) (Object) TAs;
 
-        } else if (FilePath.equals("Employee.txt")) {
-
-            ArrayList<Employee> Employees = new ArrayList<Employee>();
-            Employee x;
-
-            while (Reader.hasNext()) {
-
-                x = new Employee();
-                String Line = Reader.nextLine();
-                String[] seprated = Line.split("@");
-
-                // 1@Shaima@Ali@35@3500.0@SA@SA_1@12345678@
-                x.setID(Integer.parseInt(seprated[0]));
-                x.setFName(seprated[1]);
-                x.setLName(seprated[2]);
-                x.setAge(Integer.parseInt(seprated[3]));
-                x.setSalary(Double.parseDouble(seprated[4]));
-
-                if (seprated[5].equals("SA")) {
-                    x.setDept(Main.sa);
-                }
-
-                x.setUserName(seprated[6]);
-                x.setPass(seprated[7]);
-
-                Employees.add(x);
-            }
-
-            return (ArrayList<Object>) (Object) Employees;
-
         } else if (FilePath.equals("Courses.txt")) {
 
             ArrayList<Course> Courses = new ArrayList<Course>();

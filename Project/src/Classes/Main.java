@@ -34,15 +34,13 @@ public class Main {
 
         for (File file : files) {
 
-            if (file.getName().contains("Students.bin")) {
+            if (file.getName().contains("Students.txt")) {
                 studentFile = false;
-            } else if (file.getName().contains("Professor.bin")) {
+            } else if (file.getName().contains("Professor.txt")) {
                 profFile = false;
-            } else if (file.getName().contains("TA.bin")) {
+            } else if (file.getName().contains("TA.txt")) {
                 TAFile = false;
-            } else if (file.getName().contains("Employee.bin")) {
-                EmpFile = false;
-            } else if (file.getName().contains("Courses.bin")) {
+            } else if (file.getName().contains("Courses.txt")) {
                 courseFile = false;
             }
         }
@@ -58,11 +56,6 @@ public class Main {
 
         if (TAFile) {
             TeachingAssistant x = new TeachingAssistant();
-            x.commitToFile();
-        }
-
-        if (EmpFile) {
-            Employee x = new Employee();
             x.commitToFile();
         }
 

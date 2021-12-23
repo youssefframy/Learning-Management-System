@@ -9,16 +9,16 @@ public abstract class Person {
     protected String lname;
     protected int age;
 
-    //TODO department var
+    Department myDept = Main.general;
 
     static MyException MyEX = new MyException();
 
-    //TODO filemanager var
+    FileManger FManger = new FileManger();
 
     public Person(){
     }
 
-    public Person(int id, String username, String password, String fname, String lname, int age) { //TODO missing department
+    public Person(int id, String username, String password, String fname, String lname, int age, Department dept) {
         if (id <= 0)
             this.id = MyEX.checkPositive("ID");
         else
@@ -41,6 +41,8 @@ public abstract class Person {
             this.id = MyEX.checkPositive("Age");
         else
             this.age = age;
+
+        this.myDept = dept;
     }
 
     public abstract String toString();
@@ -81,7 +83,10 @@ public abstract class Person {
             this.age = age;
     }
 
-    //TODO setDepartment
+    public void setDept(Department dept){
+        this.myDept = dept;
+    }
+
 
     public int getID(){
         return this.id;
@@ -107,7 +112,9 @@ public abstract class Person {
         return this.age;
     }
 
-    //TODO getDepartment
+    public Department getDept(){
+        return this.myDept;
+    }
 
     public abstract boolean login(String username, String password);
 }

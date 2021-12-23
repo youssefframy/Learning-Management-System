@@ -8,15 +8,15 @@ public abstract class Staff extends Person {
 
     }
 
-    public Staff(int id, String username, String password, String fname, String lname, int age, double salary){ //TODO missinf department
-        super(id, username, password, fname, lname, age);
+    public Staff(int id, String username, String password, String fname, String lname, int age, Department dept, double salary){
+        super(id, username, password, fname, lname, age, dept);
 
         if (salary <= 0)
             this.salary = MyEX.checkPositive("Salary");
         else
             this.salary = salary;
 
-        //TODO this.myDept = dept;
+        this.myDept = dept;
     }
 
     public void setSalary(double salary){
@@ -30,7 +30,9 @@ public abstract class Staff extends Person {
         return this.salary;
     }
 
-    //TODO getDepartmentName
+    public String getDepartmentName(){
+        return myDept.getDeptName();
+    }
 
     @Override
     public abstract String toString();
@@ -38,6 +40,6 @@ public abstract class Staff extends Person {
     @Override
     public boolean equals(Object o) {
         Staff u = (Staff) o;
-        return id == u.id && fname.equals(u.fname) && lname.equals(u.lname) && age == u.age && salary == u.salary /*TODO && myDept.getDeptName().equals(u.myDept.getDeptName())*/;
+        return id == u.id && fname.equals(u.fname) && lname.equals(u.lname) && age == u.age && salary == u.salary && myDept.getDeptName().equals(u.myDept.getDeptName());
     }
 }
