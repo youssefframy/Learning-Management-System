@@ -6,6 +6,7 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.Student;
 
 /**
  *
@@ -215,6 +216,49 @@ public class Student_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if(jTextFieldID.getText().equals("") && jTextFieldFname.getText().equals("") && jTextFieldLname.getText().equals("") && jTextFieldAge.getText().equals("") && jTextFieldUserName.getText().equals("") && jPasswordField1.getText().equals("") && jPasswordField2.getText().equals("") && jTextFieldGPA.getText().equals("") && jTextFieldAge.getText().equals("")){
+
+            Student x = new Student();
+            x.setID(Integer.parseInt(jTextFieldID.getText()));
+            x.setFName(jTextFieldFname.getText());
+            x.setLName(jTextFieldLname.getText());
+            x.setAge(Integer.parseInt(jTextFieldID.getText()));
+            x.setUsername(jTextFieldID.getText());
+
+            if(jPasswordField1.getText().equals(jPasswordField2.getText()))
+                x.setPassword(jPasswordField1.getText());
+            x.setAge(Integer.parseInt(jTextFieldAge.getText()));
+            if(jComboBoxLevels.getSelectedItem().equals("Level 1"))
+                x.setLevel(1);
+            else if(jComboBoxLevels.getSelectedItem().equals("Level 2"))
+                x.setLevel(2);
+            else if(jComboBoxLevels.getSelectedItem().equals("Level 3"))
+                x.setLevel(3);
+            else if(jComboBoxLevels.getSelectedItem().equals("Level 4"))
+                x.setLevel(4);
+
+            if (jComboBoxDept.getSelectedItem().equals("General")) {
+                x.setDept(Main.general);
+            } else if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
+                x.setDept(Main.it);
+            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            x.setGpa(Double.parseDouble(jTextFieldGPA.getText()));
+
+            if(x.addStudent()) {
+                jLabelSucessOrFail.setText("Added Successfully.. !");
+                resetPanelData();
+            } else
+                jLabelSucessOrFail.setText("Faied to insert.. !");
+        }
+        else
+            jLabelSucessOrFail.setText("Missing required Fields.. ! Please coplte them before submit.. !");
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
