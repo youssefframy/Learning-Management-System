@@ -1,5 +1,8 @@
 
 package GUI;
+import Classes.Admin;
+import Classes.Person;
+
 import javax.swing.JOptionPane;
 
 
