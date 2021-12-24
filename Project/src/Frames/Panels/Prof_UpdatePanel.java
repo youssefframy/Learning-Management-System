@@ -57,6 +57,8 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jTextFieldSalary = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("ID");
 
@@ -64,6 +66,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jLabel2.setText("First name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Write Prof's ID");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -89,6 +92,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Office Hours");
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +101,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(102, 255, 255));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +110,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(102, 255, 255));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loupe.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +189,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
                                     .addComponent(jLabel9)
                                     .addGap(18, 18, 18)
                                     .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 116, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

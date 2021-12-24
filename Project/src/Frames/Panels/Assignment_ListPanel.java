@@ -34,6 +34,8 @@ public class Assignment_ListPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

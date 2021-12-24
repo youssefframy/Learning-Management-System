@@ -38,6 +38,8 @@ public class Course_UpdatePanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         jTextFieldSearchKey = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("course ID");
 
@@ -45,6 +47,7 @@ public class Course_UpdatePanel extends javax.swing.JPanel {
         jLabel2.setText("Course name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Enter The Course ID");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -55,6 +58,7 @@ public class Course_UpdatePanel extends javax.swing.JPanel {
 
         jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +66,7 @@ public class Course_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(102, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +74,7 @@ public class Course_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(102, 255, 255));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loupe.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {

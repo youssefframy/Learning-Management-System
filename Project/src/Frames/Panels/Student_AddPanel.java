@@ -50,6 +50,8 @@ public class Student_AddPanel extends javax.swing.JPanel {
         jTextFieldGPA = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("ID");
 
@@ -57,6 +59,7 @@ public class Student_AddPanel extends javax.swing.JPanel {
         jLabel2.setText("First name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Add New Student");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -93,6 +96,7 @@ public class Student_AddPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("GPA");
 
+        btnSubmit.setBackground(new java.awt.Color(102, 255, 255));
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit.setText("Add Student");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {

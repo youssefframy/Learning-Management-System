@@ -52,6 +52,8 @@ public class Prof_AddPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         jTextFieldSalary = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("ID");
 
@@ -59,6 +61,7 @@ public class Prof_AddPanel extends javax.swing.JPanel {
         jLabel2.setText("First name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Add a new Professor.");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -87,6 +90,7 @@ public class Prof_AddPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Office Hours");
 
+        btnSubmit.setBackground(new java.awt.Color(102, 255, 255));
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit.setText("Add Prof");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {

@@ -55,6 +55,8 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         jTextFieldSearchKey = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("ID");
 
@@ -62,6 +64,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
         jLabel2.setText("First name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Enter Student ID");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -93,6 +96,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("GPA");
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +105,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(102, 255, 255));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(102, 255, 255));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loupe.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {

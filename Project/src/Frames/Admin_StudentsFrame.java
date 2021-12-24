@@ -60,8 +60,9 @@ public class Admin_StudentsFrame extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Students  Management");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        btnAddStudent.setBackground(new java.awt.Color(102, 255, 255));
         btnAddStudent.setText("Add New Student");
         btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +70,7 @@ public class Admin_StudentsFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnList.setBackground(new java.awt.Color(102, 255, 255));
         btnList.setText("List All Students");
         btnList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +78,7 @@ public class Admin_StudentsFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update / Delete");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +125,8 @@ public class Admin_StudentsFrame extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+
+        DynamicPanal.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout DynamicPanalLayout = new javax.swing.GroupLayout(DynamicPanal);
         DynamicPanal.setLayout(DynamicPanalLayout);

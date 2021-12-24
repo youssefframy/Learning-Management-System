@@ -57,6 +57,8 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
         jTextFieldSalary = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("ID");
 
@@ -64,6 +66,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
         jLabel2.setText("First name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Enter Prof ID");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -89,6 +92,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Academic Hours");
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +101,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(102, 255, 255));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +110,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(102, 255, 255));
         btnSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loupe.png"))); // NOI18N
         btnSearch.setText("Search");

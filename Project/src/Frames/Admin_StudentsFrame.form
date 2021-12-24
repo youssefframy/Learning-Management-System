@@ -26,7 +26,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -80,6 +80,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnAddStudent">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Add New Student"/>
           </Properties>
           <Events>
@@ -88,6 +91,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnList">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List All Students"/>
           </Properties>
           <Events>
@@ -96,6 +102,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnUpdate">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Update / Delete"/>
           </Properties>
           <Events>
@@ -115,6 +124,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="DynamicPanal">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>

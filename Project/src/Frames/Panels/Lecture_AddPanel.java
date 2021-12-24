@@ -37,6 +37,8 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         jComboBoxDept = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Lecture ID");
 
@@ -44,6 +46,7 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         jLabel2.setText("Lecture Name");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Add New Lecture");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -65,6 +68,7 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSubmit.setBackground(new java.awt.Color(102, 255, 255));
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit.setText("Add Lecture");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {

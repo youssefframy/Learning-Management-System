@@ -69,8 +69,9 @@ public class Professor_LectureFrame extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Professors  Management");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        btnAddProf.setBackground(new java.awt.Color(102, 255, 255));
         btnAddProf.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAddProf.setText("Add Lecture");
         btnAddProf.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +80,7 @@ public class Professor_LectureFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnList.setBackground(new java.awt.Color(102, 255, 255));
         btnList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnList.setText("List All Lectures");
         btnList.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +89,7 @@ public class Professor_LectureFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate.setText("Update / Delete");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +136,8 @@ public class Professor_LectureFrame extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+
+        DynamicPanal.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout DynamicPanalLayout = new javax.swing.GroupLayout(DynamicPanal);
         DynamicPanal.setLayout(DynamicPanalLayout);

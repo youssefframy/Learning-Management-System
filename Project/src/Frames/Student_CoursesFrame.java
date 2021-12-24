@@ -74,8 +74,9 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Courses  Management");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        btnList.setBackground(new java.awt.Color(102, 255, 255));
         btnList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnList.setText("List All Courses");
         btnList.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +85,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Register Courses");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +105,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonList3.setBackground(new java.awt.Color(102, 255, 255));
         buttonList3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         buttonList3.setText("List All Lectures");
         buttonList3.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +147,8 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+
+        DynamicPanal.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout DynamicPanalLayout = new javax.swing.GroupLayout(DynamicPanal);
         DynamicPanal.setLayout(DynamicPanalLayout);
