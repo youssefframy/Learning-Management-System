@@ -53,15 +53,20 @@ public class FileManger implements Serializable {
 
                 x = new Student();
                 String Line = Reader.nextLine();
-                String[] seprated = Line.split("@");
+                String[] seprated = Line.split("#");
 
+//                this.id + "#" + this.username + "#" + this.password + "#" + this.fname + "#"
+//                        + this.lname + "#" + this.age + "#" + myDept.getDeptName() + "#"
+//                        + this.level + "#" + this.gpa + "#";
                 // 20140011@Ahmed@Ali@20@2@3.5@CS@STU_1@12345678@
                 x.setID(Integer.parseInt(seprated[0]));
-                x.setFName(seprated[1]);
-                x.setLName(seprated[2]);
-                x.setAge(Integer.parseInt(seprated[3]));
-                x.setLevel(Integer.parseInt(seprated[4]));
-                x.setGPA(Double.parseDouble(seprated[5]));
+                x.setUsername(seprated[1]);
+                x.setPassword(seprated[2]);
+                x.setFName(seprated[3]);
+                x.setLName(seprated[4]);
+                x.setAge(Integer.parseInt(seprated[5]));
+                x.setLevel(Integer.parseInt(seprated[7]));
+                x.setGpa(Double.parseDouble(seprated[8]));
 
                 if (seprated[6].equals("CS")) {
                     x.setDept(Main.cs);
@@ -72,9 +77,6 @@ public class FileManger implements Serializable {
                 } else if (seprated[6].equals("SW")) {
                     x.setDept(Main.sw);
                 }
-
-                x.setUserName(seprated[7]);
-                x.setPass(seprated[8]);
 
                 Students.add(x);
             }
@@ -90,7 +92,7 @@ public class FileManger implements Serializable {
 
                 x = new Professor();
                 String Line = Reader.nextLine();
-                String[] seprated = Line.split("@");
+                String[] seprated = Line.split("#");
 
                 // 1@Ayman@Ezzat@30@8000.0@Mon 12pm to 2pm@CS@Prof_1@12345678@
                 x.setID(Integer.parseInt(seprated[0]));
@@ -127,7 +129,7 @@ public class FileManger implements Serializable {
 
                 x = new TeachingAssistant();
                 String Line = Reader.nextLine();
-                String[] seprated = Line.split("@");
+                String[] seprated = Line.split("#");
 
                 // 1@Tamer@Yassen@25@5000.0@Sun 10am to 12pm@CS@TA_1@12345678@
                 x.setID(Integer.parseInt(seprated[0]));
@@ -164,7 +166,7 @@ public class FileManger implements Serializable {
 
                 x = new Course();
                 String Line = Reader.nextLine();
-                String[] seprated = Line.split("@");
+                String[] seprated = Line.split("#");
 
                 // PL2@CS213@100@
                 x.setCname(seprated[0]);

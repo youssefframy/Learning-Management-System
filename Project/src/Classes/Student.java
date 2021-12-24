@@ -51,7 +51,7 @@ public class Student extends Person{
             return false;
     }
 
-    private void commitToFile(){
+    protected void commitToFile(){
         FManger.write(Students.get(0).getStudentData(),StudentFileName,false);
         for (int i = 1; i < Students.size(); i++) {
             FManger.write(Students.get(i).getStudentData(),StudentFileName,true);

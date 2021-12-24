@@ -255,7 +255,7 @@ public class Student_AddPanel extends javax.swing.JPanel {
                 jLabelSucessOrFail.setText("Faied to insert.. !");
         }
         else
-            jLabelSucessOrFail.setText("Missing required Fields.. ! Please coplte them before submit.. !");
+            jLabelSucessOrFail.setText("Missing required Fields.. ! Please complete them before submit.. !");
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
