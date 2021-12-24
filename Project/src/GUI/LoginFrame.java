@@ -2,6 +2,7 @@
 package GUI;
 import Classes.Admin;
 import Classes.Person;
+import Classes.Student;
 
 import javax.swing.JOptionPane;
 
