@@ -8,6 +8,8 @@ package Frames.Panels;
 import Classes.Main;
 import Classes.Student;
 
+import javax.swing.*;
+
 
 public class Student_UpdatePanel extends javax.swing.JPanel {
 
@@ -54,6 +56,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jTextFieldSearchKey = new javax.swing.JTextField();
+        jCheckBoxBlocked = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
@@ -123,6 +126,14 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
             }
         });
 
+        jCheckBoxBlocked.setBackground(new java.awt.Color(0, 153, 153));
+        jCheckBoxBlocked.setText("Blocked");
+        jCheckBoxBlocked.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxBlockedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,37 +150,42 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelSucessOrFail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jComboBoxLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
+                                                .addComponent(jLabel1)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jTextFieldFname, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnDelete)
+                                                .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jComboBoxLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel7)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jTextFieldFname, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(jLabel9)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel10)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel10)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextFieldGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnUpdate)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(btnDelete)
+                                        .addGap(109, 109, 109)))
                                 .addGap(0, 61, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -191,10 +207,10 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldLname, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(btnUpdate)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCheckBoxBlocked)
+                .addGap(248, 248, 248))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,27 +253,39 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
                     .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(jTextFieldGPA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBoxBlocked)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
-                .addGap(128, 128, 128))
+                .addGap(90, 90, 90))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldID.getText().equals("") && jTextFieldFname.getText().equals("") && jTextFieldLname.getText().equals("") && jTextFieldAge.getText().equals("") && jTextFieldUserName.getText().equals("") && jPasswordField1.getText().equals("") && jPasswordField2.getText().equals("") && jTextFieldGPA.getText().equals("") && jTextFieldAge.getText().equals("")){
+        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldGPA.getText().equals("")) {
 
             Student x = new Student();
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
             x.setAge(Integer.parseInt(jTextFieldID.getText()));
-            x.setUsername(jTextFieldID.getText());
+            x.setUsername(jTextFieldUserName.getText());
 
             if(jPasswordField1.getText().equals(jPasswordField2.getText()))
                 x.setPassword(jPasswordField1.getText());
+            else {
+                String pass = jPasswordField2.getText();
+                do {
+                    pass = JOptionPane.showInputDialog("Please enter again \"repeat password\": ");
+                    if (!jPasswordField1.getText().equals(pass)) {
+                        JOptionPane.showMessageDialog(null, "Password didn't match repeat password :(");
+                    }
+                } while (!jPasswordField1.getText().equals(pass));
+                x.setPassword(jPasswordField1.getText());
+            }
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));
             if(jComboBoxLevels.getSelectedItem().equals("Level 1"))
                 x.setLevel(1);
@@ -280,9 +308,12 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
                 x.setDept(Main.sw);
             }
 
+            if(jCheckBoxBlocked.isSelected())
+                x.setBlocked1("true");
+
             x.setGpa(Double.parseDouble(jTextFieldGPA.getText()));
 
-            if(x.addStudent()) {
+            if(x.updateStudent(x.getID(),x)) {
                 jLabelSucessOrFail.setText("Updated Successfully.. !");
                 resetPanelData();
             } else
@@ -295,7 +326,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldSearchKey.getText().equals("")) {
+        if (!jTextFieldSearchKey.getText().equals("")) {
             Student x = new Student();
             Student returned = x.searchStudentById(Integer.parseInt(jTextFieldSearchKey.getText()));
             if(returned.getID() > 0)
@@ -310,7 +341,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldSearchKey.getText().equals("")) {
+        if(!jTextFieldSearchKey.getText().equals("")) {
             Student x = new Student();
             if(x.deleteStudent(Integer.parseInt(jTextFieldSearchKey.getText()))) {
                 jLabelSucessOrFail.setText("Deleted Successfully.. !");
@@ -322,6 +353,11 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
             jLabelSucessOrFail.setText("You didn't enter an ID.. ! Please enter an ID to search");
 
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void jCheckBoxBlockedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBlockedActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCheckBoxBlockedActionPerformed
 
     protected void resetPanelData() {
         jTextFieldID.setText("");
@@ -335,6 +371,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
         jComboBoxLevels.setSelectedIndex(0);
         jComboBoxDept.setSelectedIndex(0);
+        jCheckBoxBlocked.setSelected(false);
 
     }
 
@@ -369,6 +406,12 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
         } else if (x.myDept.getDeptName().equals("SW")) {
             jComboBoxDept.setSelectedIndex(4);
         }
+
+        if(x.isBlocked1().equals("true"))
+            jCheckBoxBlocked.setSelected(true);
+        else
+            jCheckBoxBlocked.setSelected(false);
+
     }
 
 
@@ -376,6 +419,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JCheckBox jCheckBoxBlocked;
     private javax.swing.JComboBox<String> jComboBoxDept;
     private javax.swing.JComboBox<String> jComboBoxLevels;
     private javax.swing.JLabel jLabel1;

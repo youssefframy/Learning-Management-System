@@ -68,6 +68,8 @@ public class FileManger implements Serializable {
                 x.setLevel(Integer.parseInt(seprated[7]));
                 x.setGpa(Double.parseDouble(seprated[8]));
 
+                x.setBlocked1(seprated[9]);
+
                 if (seprated[6].equals("CS")) {
                     x.setDept(Main.cs);
                 } else if (seprated[6].equals("IS")) {
@@ -77,6 +79,9 @@ public class FileManger implements Serializable {
                 } else if (seprated[6].equals("SW")) {
                     x.setDept(Main.sw);
                 }
+
+                x.setBlocked1(seprated[9]);
+
 
                 Students.add(x);
             }
@@ -112,8 +117,10 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
-                x.setUserName(seprated[7]);
-                x.setPass(seprated[8]);
+                x.setUsername(seprated[7]);
+                x.setPassword(seprated[8]);
+
+                x.setBlocked1(seprated[9]);
 
                 Professors.add(x);
             }
@@ -122,12 +129,12 @@ public class FileManger implements Serializable {
 
         } else if (FilePath.equals("TA.txt")) {
 
-            ArrayList<TeachingAssistant> TAs = new ArrayList<TeachingAssistant>();
-            TeachingAssistant x;
+            ArrayList<TA> TAs = new ArrayList<TA>();
+            TA x;
 
             while (Reader.hasNext()) {
 
-                x = new TeachingAssistant();
+                x = new TA();
                 String Line = Reader.nextLine();
                 String[] seprated = Line.split("#");
 
@@ -149,8 +156,8 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
-                x.setUserName(seprated[7]);
-                x.setPass(seprated[8]);
+                x.setUsername(seprated[7]);
+                x.setPassword(seprated[8]);
 
                 TAs.add(x);
             }
@@ -169,16 +176,146 @@ public class FileManger implements Serializable {
                 String[] seprated = Line.split("#");
 
                 // PL2@CS213@100@
-                x.setCname(seprated[0]);
+                x.setCName(seprated[0]);
                 x.setCId(seprated[1]);
                 x.setCreditHours(Integer.parseInt(seprated[2]));
+                if (seprated[3].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[3].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[3].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[3].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
 
                 Courses.add(x);
             }
 
             return (ArrayList<Object>) (Object) Courses;
 
-        } else {
+        } else if (FilePath.equals("RegisteredCourses.txt")) {
+
+            ArrayList<RegisteredCourse> RegisteredCourse = new ArrayList<Classes.RegisteredCourse>();
+            Classes.RegisteredCourse x;
+
+            while (Reader.hasNext()) {
+
+                x = new RegisteredCourse();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                x.setStudentID(Integer.parseInt(seprated[0]));
+                x.setCName(seprated[1]);
+                x.setCId(seprated[2]);
+                x.setCreditHours(Integer.parseInt(seprated[3]));
+
+                if (seprated[4].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[4].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[4].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[4].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+
+                RegisteredCourse.add(x);
+            }
+
+            return (ArrayList<Object>) (Object) RegisteredCourse;
+
+        } else if (FilePath.equals("Lectures.txt")) {
+
+            ArrayList<Lecture> Lectures = new ArrayList<Lecture>();
+            Lecture x;
+
+            while (Reader.hasNext()) {
+
+                x = new Lecture();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                x.setLName(seprated[0]);
+                x.setLNumber(seprated[1]);
+                x.setLDate(seprated[3]);
+
+                if (seprated[2].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[2].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[2].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[2].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+                Lectures.add(x);
+            }
+            return (ArrayList<Object>) (Object) Lectures;
+        } else if (FilePath.equals("Assignments.txt")) {
+
+            ArrayList<Assignment> Assignments = new ArrayList<Assignment>();
+            Assignment x;
+
+            while (Reader.hasNext()) {
+
+                x = new Assignment();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                x.setAName(seprated[0]);
+                x.setAType(seprated[1]);
+                x.setADueDate(seprated[2]);
+
+                if (seprated[2].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[2].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[2].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[2].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+                Assignments.add(x);
+            }
+            return (ArrayList<Object>) (Object) Assignments;
+        }else if (FilePath.equals("Exams.txt")){
+            ArrayList<Exam> Exams = new ArrayList<Exam>();
+            Exam x;
+
+            while (Reader.hasNext()) {
+                x = new Exam();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                //return this.EName + "#" + this.EId + "#" + this.EDate + "#" + this.CourseName + "#" + this.dept.getDeptName()+ "#";
+                x.setEName(seprated[0]);
+                x.setEId(seprated[1]);
+                x.setEDate(Integer.parseInt(seprated[2]));
+                x.setCourse(seprated[3]);
+                if (seprated[4].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[4].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[4].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[4].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+
+                Exams.add(x);
+            }
+
+
+
+
+
+            return (ArrayList<Object>) (Object) Exams;
+        }else {
             return null;
         }
 

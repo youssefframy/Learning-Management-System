@@ -6,6 +6,9 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.TA;
+
+import javax.swing.*;
 
 
 public class TA_AddPanel extends javax.swing.JPanel {
@@ -216,6 +219,50 @@ public class TA_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldAcademicHours.getText().equals("") && !jTextFieldSalary.getText().equals("")) {
+
+            TA x = new TA();
+            x.setID(Integer.parseInt(jTextFieldID.getText()));
+            x.setFName(jTextFieldFname.getText());
+            x.setLName(jTextFieldLname.getText());
+            x.setUsername(jTextFieldUserName.getText());
+            if(jPasswordField1.getText().equals(jPasswordField2.getText()))
+                x.setPassword(jPasswordField1.getText());
+            else {
+                String pass = jPasswordField2.getText();
+                do {
+                    pass = JOptionPane.showInputDialog("Please enter again \"repeat password\": ");
+                    if (!jPasswordField1.getText().equals(pass)) {
+                        JOptionPane.showMessageDialog(null, "Password didn't match repeat password :(");
+                    }
+                } while (!jPasswordField1.getText().equals(pass));
+                x.setPassword(jPasswordField1.getText());
+            }
+
+            x.setAge(Integer.parseInt(jTextFieldAge.getText()));
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
+                x.setDept(Main.it);
+            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            x.setacademicHours(jTextFieldAcademicHours.getText());
+            x.setSalary(Double.parseDouble(jTextFieldSalary.getText()));
+
+            if (x.addTA()) {
+                jLabelSucessOrFail.setText("Added Successfully ... !");
+                resetPanelData();
+            } else {
+                jLabelSucessOrFail.setText("Failed to insert ... !");
+            }
+        } else {
+            jLabelSucessOrFail.setText("Missing required Fields ... !  Please, complete them before submit ...!");
+        }
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 

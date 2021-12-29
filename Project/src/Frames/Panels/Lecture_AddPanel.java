@@ -5,7 +5,14 @@
  */
 package Frames.Panels;
 
+import Classes.Lecture;
 import Classes.Main;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 
 public class Lecture_AddPanel extends javax.swing.JPanel {
@@ -29,10 +36,10 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldCname = new javax.swing.JTextField();
+        jTextFieldLName = new javax.swing.JTextField();
         jLabelSucessOrFail = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldCreditHours = new javax.swing.JTextField();
+        jTextFieldLDate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBoxDept = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
@@ -45,6 +52,12 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Lecture Name");
 
+        jTextFieldLName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLNameActionPerformed(evt);
+            }
+        });
+
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Add New Lecture");
@@ -52,16 +65,16 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Date");
 
-        jTextFieldCreditHours.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldLDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCreditHoursActionPerformed(evt);
+                jTextFieldLDateActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
         jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDeptActionPerformed(evt);
@@ -94,8 +107,8 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCname)
-                            .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldLName)
+                            .addComponent(jTextFieldLDate, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 54, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -116,10 +129,10 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -133,21 +146,52 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldID.getText().equals("") && !jTextFieldLName.getText().equals("") && !jTextFieldLDate.getText().equals("")){
 
+            Lecture x = new Lecture();
+            x.setLNumber(jTextFieldID.getText());
+            x.setLName(jTextFieldLName.getText());
+            x.setLDate(jTextFieldLDate.getText());
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            } else if (jComboBoxDept.getSelectedItem().equals("IT")) {
+                x.setDept(Main.it);
+            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            if (x.addLecture()){
+                jLabelSucessOrFail.setText("Added Successfully");
+                resetPanelData();
+            }
+            else{
+                jLabelSucessOrFail.setText("Failed to insert");
+            }
+        }
+        else{
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit");
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jComboBoxDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeptActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDeptActionPerformed
 
-    private void jTextFieldCreditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCreditHoursActionPerformed
+    private void jTextFieldLDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCreditHoursActionPerformed
+    }//GEN-LAST:event_jTextFieldLDateActionPerformed
+
+    private void jTextFieldLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLNameActionPerformed
 
     protected void resetPanelData() {
         jTextFieldID.setText("");
-        jTextFieldCname.setText("");
-        jTextFieldCreditHours.setText("");
+        jTextFieldLName.setText("");
+        jTextFieldLDate.setText("");
         jComboBoxDept.setSelectedIndex(0);
 
     }
@@ -160,8 +204,8 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldCname;
-    private javax.swing.JTextField jTextFieldCreditHours;
     private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldLDate;
+    private javax.swing.JTextField jTextFieldLName;
     // End of variables declaration//GEN-END:variables
 }

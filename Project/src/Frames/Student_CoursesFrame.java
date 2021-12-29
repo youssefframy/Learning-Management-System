@@ -7,7 +7,7 @@ package Frames;
 
 import Frames.Panels.Assignment_ListPanel;
 import Frames.Panels.Course_AddPanel;
-import Frames.Panels.Course_ListPanel;
+import Frames.Panels.RegCourse_ListPanel;
 import Frames.Panels.Course_UpdatePanel;
 import Frames.Panels.Lecture_ListPanel;
 import Frames.Panels.Student_Courses_RegisterPanel;
@@ -25,14 +25,14 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
      */
     GridBagLayout layout = new GridBagLayout();
 
-    Course_ListPanel p1;
+    RegCourse_ListPanel p1;
     Student_Courses_RegisterPanel p2;
     Lecture_ListPanel p3;
     Assignment_ListPanel p4;
 
     public Student_CoursesFrame() {
         initComponents();
-        p1 = new Course_ListPanel();
+        p1 = new RegCourse_ListPanel();
         p2 = new Student_Courses_RegisterPanel();
         p3 = new Lecture_ListPanel();
         p4 = new Assignment_ListPanel();
@@ -73,6 +73,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Courses  Management");
+        setPreferredSize(new java.awt.Dimension(780, 614));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 

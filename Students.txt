@@ -1,0 +1,7 @@
+1#youssefS@student.com#12345678#youssef#salah#19#General#2#2.9#false#
+2#Kirollos@student.com#12345678#kirollos#rafik#20#General#2#3.53#true#
+3#mina@student.com#12345678#mina#milad#20#General#2#3.2#true#
+4#youssefE@student.com#12345678#youssef#emile#20#General#2#3.3#false#
+5#hassan@student.com#11223344#hassan#mohamed#18#General#1#3.1#false#
+6#khaled@student.com#111222333#khaled#bakry#23#CS#3#2.8#false#
+7#hamada@student.com#12345678#hamada#helal#25#IS#4#1.9#true#

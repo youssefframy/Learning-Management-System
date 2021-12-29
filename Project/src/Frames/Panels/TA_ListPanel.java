@@ -5,6 +5,8 @@
  */
 package Frames.Panels;
 
+import Classes.TA;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -71,17 +73,17 @@ public class TA_ListPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[9];
 
-        TeachingAssistant ta = new TeachingAssistant();
-        ArrayList<TeachingAssistant> TAs = new ArrayList<TeachingAssistant>();
+        TA ta = new TA();
+        ArrayList<TA> TAs = new ArrayList<TA>();
 
         TAs = ta.listTAs();
 
-        for (TeachingAssistant x : TAs) {
+        for (TA x : TAs) {
             rowData[0] = x.getID();
             rowData[1] = x.getFName();
             rowData[2] = x.getLName();
-            rowData[3] = x.getuserName();
-            rowData[4] = x.getPass();
+            rowData[3] = x.getUsername();
+            rowData[4] = x.getPassword();
             rowData[5] = x.getAge();
             rowData[6] = x.getSalary();
             rowData[7] = x.getacademicHours();

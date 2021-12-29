@@ -4,10 +4,6 @@
  */
 package Frames.Panels;
 
-/**
- *
- * @author Tamer
- */
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;

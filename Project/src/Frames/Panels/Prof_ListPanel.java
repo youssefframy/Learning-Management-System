@@ -5,13 +5,11 @@
  */
 package Frames.Panels;
 
+import Classes.Professor;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Tamer A.Yassen
- */
 public class Prof_ListPanel extends javax.swing.JPanel {
 
     /**
@@ -79,12 +77,14 @@ public class Prof_ListPanel extends javax.swing.JPanel {
 
         professors = prof.listProfs();
 
+//        return this.id + "#" + this.fname + "#" + this.lname + "#" + this.age + "#" + this.salary + "#" + this.officeHours
+//                + "#" + this.myDept.getDeptName() + "#" + this.username + "#" + this.password + "#";
         for (Professor x : professors) {
             rowData[0] = x.getID();
             rowData[1] = x.getFName();
             rowData[2] = x.getLName();
-            rowData[3] = x.getuserName();
-            rowData[4] = x.getPass();
+            rowData[3] = x.getUsername();
+            rowData[4] = x.getPassword();
             rowData[5] = x.getAge();
             rowData[6] = x.getSalary();
             rowData[7] = x.getOfficeHours();

@@ -29,7 +29,6 @@ public class Main {
         boolean studentFile = true;
         boolean profFile = true;
         boolean TAFile = true;
-        boolean EmpFile = true;
         boolean courseFile = true;
 
         for (File file : files) {
@@ -55,14 +54,14 @@ public class Main {
         }
 
         if (TAFile) {
-            TeachingAssistant x = new TeachingAssistant();
+            TA x = new TA();
             x.commitToFile();
         }
 
-        if (courseFile) {
-            Course x = new Course();
-            x.commitToFile();
-        }
+//        if (courseFile) {
+//            Course x = new Course();
+//            x.commitToFile();
+//        }
     }
 
 }

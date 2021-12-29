@@ -1,11 +1,15 @@
 
 package GUI;
 
+import Classes.BarChart;
+import Classes.Student;
 import Frames.Admin_CoursesFrame;
 import Frames.Admin_ProfessorsFrame;
 import Frames.Admin_StudentsFrame;
 import Frames.Admin_TAsFrame;
 import Frames.Panels.ChartPanel;
+import org.jfree.ui.RefineryUtilities;
+
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -181,6 +185,20 @@ public class AdminDashboard extends javax.swing.JFrame {
         JFrame f = new JFrame();
         f.setLocation(250, 100);
         f.setSize(600, 550);
+
+        Student x = new Student();
+        ArrayList<Student> s = x.listStudents();
+        double[] values = new double[s.size()];
+        String[] names = new String[s.size()];
+        for (int i = 0; i < s.size(); i++) {
+            values[i] = s.get(i).getGpa();
+            names[i] = s.get(i).getFName() + " " + s.get(i).getLName();
+        }
+        BarChart chart = new BarChart(" GPA Report ", names, values);
+
+        chart.pack();
+        RefineryUtilities.centerFrameOnScreen(chart);
+        chart.setVisible(true);
 
     }//GEN-LAST:event_menuReportActionPerformed
 

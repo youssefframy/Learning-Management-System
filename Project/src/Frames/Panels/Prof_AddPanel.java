@@ -6,11 +6,10 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.Professor;
 
-/**
- *
- * @author Tamer A.Yassen
- */
+import javax.swing.*;
+
 public class Prof_AddPanel extends javax.swing.JPanel {
 
     /**
@@ -219,9 +218,18 @@ public class Prof_AddPanel extends javax.swing.JPanel {
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
-            x.setUserName(jTextFieldUserName.getText());
-            if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                x.setPass(jPasswordField1.getText());
+            x.setUsername(jTextFieldUserName.getText());
+            if(jPasswordField1.getText().equals(jPasswordField2.getText()))
+                x.setPassword(jPasswordField1.getText());
+            else {
+                String pass = jPasswordField2.getText();
+                do {
+                    pass = JOptionPane.showInputDialog("Please enter again \"repeat password\": ");
+                    if (!jPasswordField1.getText().equals(pass)) {
+                        JOptionPane.showMessageDialog(null, "Password didn't match repeat password :(");
+                    }
+                } while (!jPasswordField1.getText().equals(pass));
+                x.setPassword(jPasswordField1.getText());
             }
 
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));

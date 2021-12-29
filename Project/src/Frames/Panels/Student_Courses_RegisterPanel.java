@@ -5,7 +5,12 @@
  */
 package Frames.Panels;
 
-import Classes.Main;
+import Classes.Course;
+import Classes.RegisteredCourse;
+import Classes.Student;
+
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
@@ -15,7 +20,32 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
      */
     public Student_Courses_RegisterPanel() {
         initComponents();
-    }
+        addRowsTojTable();
+        Course c = new Course();
+        ArrayList<Course> courses =new ArrayList<Course>();
+//            ArrayList<String> IDs = new ArrayList<>();
+        String ID;
+        courses = c.listCourses();
+        for(Course x : courses){
+            ID = x.getCId();
+            jComboBoxCourse.addItem(ID);
+        }
+
+//            for (int i = 0; i < IDs.size(); i++) {
+//                System.out.println(IDs.get(i));
+//                jComboBoxCourse.addItem(IDs.get(i));
+//            }
+        }
+//        Scanner Reader = null;
+//        try{
+//            Reader = new Scanner(new File("course.txt"));
+//        }catch (FileNotFoundException e) {
+//            System.out.println(e);
+//        }
+//        while(Reader.hasNext()){
+//            String Line = Reader.nextLine();
+//            jComboBoxCourse.addItem(Line);
+//        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,142 +56,168 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldCname = new javax.swing.JTextField();
-        jLabelSucessOrFail = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextFieldCreditHours = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jComboBoxDept = new javax.swing.JComboBox<>();
-        btnSubmit = new javax.swing.JButton();
+        btnSubmit1 = new javax.swing.JButton();
+        jComboBoxCourse = new javax.swing.JComboBox<>();
+        jTextFieldID1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelSucessOrFail1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Course ID");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Course name");
-
-        jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
-        jLabelSucessOrFail.setText("Add New Course");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("Credit Hours");
-
-        jTextFieldCreditHours.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit1.setBackground(new java.awt.Color(102, 255, 255));
+        btnSubmit1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSubmit1.setText("Add Course");
+        btnSubmit1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCreditHoursActionPerformed(evt);
+                btnSubmit1ActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Department");
-
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
-        jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldID1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxDeptActionPerformed(evt);
+                jTextFieldID1ActionPerformed(evt);
             }
         });
 
-        btnSubmit.setBackground(new java.awt.Color(102, 255, 255));
-        btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSubmit.setText("Add Course");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Your ID");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Course name");
+
+        jLabelSucessOrFail1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail1.setForeground(new java.awt.Color(255, 255, 51));
+        jLabelSucessOrFail1.setText("Add New Course");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Course name", "Credit Hours", "Dept"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSucessOrFail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9))
-                        .addGap(44, 44, 44)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabelSucessOrFail1))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCname)
-                            .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 60, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSubmit)
-                .addGap(220, 220, 220))
+                            .addComponent(jTextFieldID1)
+                            .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(btnSubmit1)))
+                .addContainerGap(256, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSucessOrFail, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addComponent(jLabelSucessOrFail1)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(btnSubmit)
-                .addContainerGap(249, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(btnSubmit1)
+                .addGap(37, 37, 37))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(201, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+    private void jTextFieldID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldID1ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldID1ActionPerformed
 
-    }//GEN-LAST:event_btnSubmitActionPerformed
-
-    private void jComboBoxDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeptActionPerformed
+    private void btnSubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxDeptActionPerformed
+        if (!jTextFieldID1.getText().equals("")) {
+            Student x = new Student();
+            Student returned = x.searchStudentById(Integer.parseInt(jTextFieldID1.getText()));
+            if(returned.getID() > 0) {
+                RegisteredCourse r = new RegisteredCourse((String) jComboBoxCourse.getSelectedItem());
+                r.setStudentID(Integer.parseInt(jTextFieldID1.getText()));
+                if(r.addRegisteredCourse()){
+                    jLabelSucessOrFail1.setText("Added Successfully");
+                    resetPanelData();
+                } else {
+                    jLabelSucessOrFail1.setText("Failed to insert");
+                }
+            }else
+                jLabelSucessOrFail1.setText("Not Found.. !");
+        } else
+            jLabelSucessOrFail1.setText("You didn't enter an ID.. ! Please enter an ID to search");
+    }//GEN-LAST:event_btnSubmit1ActionPerformed
 
-    private void jTextFieldCreditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCreditHoursActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCreditHoursActionPerformed
+    public void addRowsTojTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Object rowData[] = new Object[4];
 
+        Course c = new Course();
+        ArrayList<Course> courses =new ArrayList<Course>();
+
+        courses = c.listCourses();
+
+        for (Course x : courses){
+            rowData[0] = x.getCId();
+            rowData[1] = x.getCName();
+            rowData[2] = x.getCreditHours();
+            //rowData[3] = x.dept.getDeptName();
+
+            model.addRow(rowData);
+        }
+    }
     protected void resetPanelData() {
-        jTextFieldID.setText("");
-        jTextFieldCname.setText("");
-        jTextFieldCreditHours.setText("");
-        jComboBoxDept.setSelectedIndex(0);
+        jTextFieldID1.setText("");
+        jComboBoxCourse.setSelectedIndex(0);
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSubmit;
-    private javax.swing.JComboBox<String> jComboBoxDept;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldCname;
-    private javax.swing.JTextField jTextFieldCreditHours;
-    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JButton btnSubmit1;
+    private javax.swing.JComboBox<String> jComboBoxCourse;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelSucessOrFail1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextFieldID1;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,7 +18,7 @@ public class Admin extends Staff{
     }
 
     public boolean login(String username, String password){
-        if(username.equals("Admin") && password.equals("admin"))
+        if(username.equals("Admin@yahoo.com") && password.equals("12345678"))
             return true;
         else
             return false;

@@ -35,8 +35,8 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextFieldID" alignment="0" pref="298" max="32767" attributes="0"/>
-                          <Component id="jTextFieldCname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldCreditHours" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTextFieldLName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldLDate" alignment="1" max="32767" attributes="0"/>
                           <Component id="jComboBoxDept" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
@@ -64,11 +64,11 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldCreditHours" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -102,7 +102,10 @@
         <Property name="text" type="java.lang.String" value="Lecture Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCname">
+    <Component class="javax.swing.JTextField" name="jTextFieldLName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLNameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelSucessOrFail">
       <Properties>
@@ -123,9 +126,9 @@
         <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCreditHours">
+    <Component class="javax.swing.JTextField" name="jTextFieldLDate">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCreditHoursActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLDateActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -139,11 +142,12 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxDept">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="CS"/>
-            <StringItem index="1" value="IS"/>
-            <StringItem index="2" value="IT"/>
-            <StringItem index="3" value="SW"/>
+          <StringArray count="5">
+            <StringItem index="0" value="General"/>
+            <StringItem index="1" value="CS"/>
+            <StringItem index="2" value="IS"/>
+            <StringItem index="3" value="IT"/>
+            <StringItem index="4" value="SW"/>
           </StringArray>
         </Property>
       </Properties>

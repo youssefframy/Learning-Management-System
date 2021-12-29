@@ -6,6 +6,7 @@
 package GUI;
 
 import Frames.Professor_AssignmentFrame;
+import Frames.Professor_ExamFrame;
 import Frames.Professor_LectureFrame;
 import Frames.Student_CoursesFrame;
 
@@ -119,7 +120,7 @@ public class ProfessorDashboard extends javax.swing.JFrame {
 
     private void MenuCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCoursesActionPerformed
         // TODO add your handling code here:
-        Student_CoursesFrame f = new Student_CoursesFrame();
+        Professor_ExamFrame f = new Professor_ExamFrame();
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_MenuCoursesActionPerformed

@@ -1,5 +1,6 @@
 package Classes;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Student extends Person{
@@ -41,7 +42,7 @@ public class Student extends Person{
     private String getStudentData(){
         return this.id + "#" + this.username + "#" + this.password + "#" + this.fname + "#"
                 + this.lname + "#" + this.age + "#" + myDept.getDeptName() + "#"
-                + this.level + "#" + this.gpa + "#";
+                + this.level + "#" + this.gpa + "#" + this.isBlocked + "#";
     }
 
     public boolean addStudent(){
@@ -118,9 +119,10 @@ public class Student extends Person{
     public boolean login(String username, String password){
         loadFromFile();
         for(Student x : Students){
-            if(username.equals(x.getUsername()) && password.equals(x.getPassword()))
+            if(username.equals(x.getUsername()) && password.equals(x.getPassword()) && x.isBlocked1().equals("false"))
                 return true;
         }
+//        JOptionPane.showMessageDialog(null, "This account isn't available or is blocked");
         return false;
     }
 }

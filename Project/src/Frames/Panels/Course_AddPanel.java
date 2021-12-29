@@ -6,6 +6,7 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.Course;
 
 
 public class Course_AddPanel extends javax.swing.JPanel {
@@ -61,7 +62,7 @@ public class Course_AddPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
         jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDeptActionPerformed(evt);
@@ -133,7 +134,31 @@ public class Course_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if(!jTextFieldCname.getText().equals("") && !jTextFieldID.getText().equals("") && !jTextFieldCreditHours.getText().equals("")) {
 
+            Course x = new Course();
+            x.setCId(jTextFieldID.getText());
+            x.setCName(jTextFieldCname.getText());
+            x.setCreditHours(Integer.parseInt(jTextFieldCreditHours.getText()));
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            } else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            } else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            if (x.addCourse()) {
+                jLabelSucessOrFail.setText("Added Successfully");
+                resetPanelData();
+            } else {
+                jLabelSucessOrFail.setText("Failed to insert");
+            }
+        }
+        else{
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit");
+        }
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 

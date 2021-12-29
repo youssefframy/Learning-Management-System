@@ -1,8 +1,12 @@
 
 package Frames.Panels;
 
-import Classes.Main;
 
+
+import Classes.Main;
+import Classes.Lecture;
+
+import java.sql.Date;
 
 public class Lecture_UpdatePanel extends javax.swing.JPanel {
 
@@ -11,7 +15,7 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
      */
     public Lecture_UpdatePanel() {
         initComponents();
-        jTextFieldID.setEditable(false);
+        jTextFieldLNumber.setEditable(false);
 
     }
 
@@ -25,12 +29,12 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldLNumber = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldCname = new javax.swing.JTextField();
+        jTextFieldLName = new javax.swing.JTextField();
         jLabelSucessOrFail = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldCreditHours = new javax.swing.JTextField();
+        jTextFieldLDate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBoxDept = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
@@ -56,7 +60,7 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
 
         btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update");
@@ -104,15 +108,15 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldCreditHours))
+                                    .addComponent(jTextFieldLDate))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldLName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldLNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(93, 93, 93)
                                 .addComponent(btnUpdate)))
@@ -137,15 +141,15 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldLNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
@@ -158,25 +162,93 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldLNumber.getText().equals("") && !jTextFieldLName.getText().equals("") && !jTextFieldLDate.getText().equals("")){
 
-    }//GEN-LAST:event_btnUpdateActionPerformed
+            Lecture x = new Lecture();
+            x.setLNumber(jTextFieldLNumber.getText());
+            x.setLName(jTextFieldLName.getText());
+            x.setLDate(jTextFieldLDate.getText());
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("IT")) {
+                x.setDept(Main.it);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            if (x.updateLecture(x.getLNumber(),x)) {
+                jLabelSucessOrFail.setText("Updated Successfully");
+                resetPanelData();
+            }
+            else {
+                jLabelSucessOrFail.setText("Failed to Update");
+            }
+        }
+        else {
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit ...!");
+        }
+    }
+//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldSearchKey.getText().equals("")){
+            Lecture x = new Lecture();
+            Lecture returned = x.searchLecture(jTextFieldSearchKey.getText());
+            if (!returned.getLNumber().isEmpty()){
+                setPanelData(returned);
+            }
+            else{
+                jLabelSucessOrFail.setText("Missing required Fields .. Please, Search By ID before submit");
+            }
+        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-
+        if (!jTextFieldSearchKey.getText().equals("")){
+            Lecture x = new Lecture();
+            if (x.deleteLecture(jTextFieldSearchKey.getText())){
+                jLabelSucessOrFail.setText("Deleted Successfully");
+                resetPanelData();
+            }
+            else{
+                jLabelSucessOrFail.setText("Failed to delete");
+            }
+        }
+        else{
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, Search By ID before submit");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     protected void resetPanelData() {
-        jTextFieldID.setText("");
-        jTextFieldCname.setText("");
-        jTextFieldCreditHours.setText("");
+        jTextFieldLNumber.setText("");
+        jTextFieldLName.setText("");
+        jTextFieldLDate.setText("");
 
         jComboBoxDept.setSelectedIndex(0);
+    }
 
+    protected void setPanelData(Lecture x){
+        jTextFieldLNumber.setText("" + x.getLNumber());
+        jTextFieldLName.setText("" + x.getLName());
+        jTextFieldLDate.setText("" + x.getLDate());
+
+        if (x.dept.getDeptName().equals("CS")) {
+            jComboBoxDept.setSelectedIndex(0);
+        } else if (x.dept.getDeptName().equals("IS")) {
+            jComboBoxDept.setSelectedIndex(1);
+        } else if (x.dept.getDeptName().equals("IT")) {
+            jComboBoxDept.setSelectedIndex(2);
+        } else if (x.dept.getDeptName().equals("SW")) {
+            jComboBoxDept.setSelectedIndex(3);
+        }
     }
 
 
@@ -190,9 +262,9 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldCname;
-    private javax.swing.JTextField jTextFieldCreditHours;
-    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldLDate;
+    private javax.swing.JTextField jTextFieldLName;
+    private javax.swing.JTextField jTextFieldLNumber;
     private javax.swing.JTextField jTextFieldSearchKey;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,9 @@
 
 package Frames.Panels;
 
-import Classes.Main;
 
+import Classes.Assignment;
+import Classes.Main;
 
 public class Assignment_UpdatePanel extends javax.swing.JPanel {
 
@@ -11,7 +12,7 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
      */
     public Assignment_UpdatePanel() {
         initComponents();
-        jTextFieldID.setEditable(false);
+        jTextFieldAType.setEditable(false);
 
     }
 
@@ -25,12 +26,12 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldAType = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldCname = new javax.swing.JTextField();
+        jTextFieldAName = new javax.swing.JTextField();
         jLabelSucessOrFail = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldCreditHours = new javax.swing.JTextField();
+        jTextFieldADueDate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBoxDept = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
@@ -56,7 +57,7 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
 
         btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update");
@@ -104,15 +105,15 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldCreditHours))
+                                    .addComponent(jTextFieldADueDate))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldAName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldAType, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(93, 93, 93)
                                 .addComponent(btnUpdate)))
@@ -137,15 +138,15 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldADueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
@@ -158,28 +159,99 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldAName.getText().equals("") && !jTextFieldAType.getText().equals("") && !jTextFieldADueDate.getText().equals("")){
 
+            Assignment x = new Assignment();
+            x.setAName(jTextFieldAName.getText());
+            x.setAType(jTextFieldAType.getText());
+            x.setADueDate(jTextFieldADueDate.getText());
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            if (x.addAssignment()) {
+                jLabelSucessOrFail.setText("Added Successfully");
+                resetPanelData();
+            }
+            else{
+                jLabelSucessOrFail.setText("Failed to insert");
+            }
+        }
+        else {
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
 
+        if (!jTextFieldSearchKey.getText().equals("")){
+            Assignment x = new Assignment();
+            Assignment returned = x.searchAssignment(jTextFieldAName.getText());
+            if (!returned.getAName().isEmpty()) {
+                setPanelData(returned);
+            }
+            else{
+                jLabelSucessOrFail.setText("Not Found");
+            }
+        }
+        else {
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, Search By ID before submit");
+        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
 
+        if (!jTextFieldSearchKey.getText().equals("")) {
+            Assignment x = new Assignment();
+            if (x.deleteAssignment(jTextFieldSearchKey.getText())) {
+                jLabelSucessOrFail.setText("Deleted Successfully");
+                resetPanelData();
+            }
+            else{
+                jLabelSucessOrFail.setText("Failed to delete");
+            }
+        }
+        else{
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, Search By ID before submit");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     protected void resetPanelData() {
-        jTextFieldID.setText("");
-        jTextFieldCname.setText("");
-        jTextFieldCreditHours.setText("");
+        jTextFieldAType.setText("");
+        jTextFieldAName.setText("");
+        jTextFieldADueDate.setText("");
 
         jComboBoxDept.setSelectedIndex(0);
 
     }
 
+    protected void setPanelData(Assignment x){
+        jTextFieldAName.setText("" + x.getAName());
+        jTextFieldAType.setText("" + x.getAType());
+        jTextFieldADueDate.setText("" + x.getADueDate());
+
+        if (x.dept.getDeptName().equals("CS")) {
+            jComboBoxDept.setSelectedIndex(0);
+        }
+        else if (x.dept.getDeptName().equals("IS")) {
+            jComboBoxDept.setSelectedIndex(1);
+        }
+        else if (x.dept.getDeptName().equals("IT")) {
+            jComboBoxDept.setSelectedIndex(2);
+        }
+        else if (x.dept.getDeptName().equals("SW")) {
+            jComboBoxDept.setSelectedIndex(3);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -191,9 +263,9 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldCname;
-    private javax.swing.JTextField jTextFieldCreditHours;
-    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldAName;
+    private javax.swing.JTextField jTextFieldADueDate;
+    private javax.swing.JTextField jTextFieldAType;
     private javax.swing.JTextField jTextFieldSearchKey;
     // End of variables declaration//GEN-END:variables
 }

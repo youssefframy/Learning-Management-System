@@ -8,6 +8,8 @@ package Frames.Panels;
 import Classes.Main;
 import Classes.Student;
 
+import javax.swing.*;
+
 
 public class Student_AddPanel extends javax.swing.JPanel {
 
@@ -217,17 +219,27 @@ public class Student_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldID.getText().equals("") && jTextFieldFname.getText().equals("") && jTextFieldLname.getText().equals("") && jTextFieldAge.getText().equals("") && jTextFieldUserName.getText().equals("") && jPasswordField1.getText().equals("") && jPasswordField2.getText().equals("") && jTextFieldGPA.getText().equals("") && jTextFieldAge.getText().equals("")){
+        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldGPA.getText().equals("")) {
 
             Student x = new Student();
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
             x.setAge(Integer.parseInt(jTextFieldID.getText()));
-            x.setUsername(jTextFieldID.getText());
+            x.setUsername(jTextFieldUserName.getText());
 
             if(jPasswordField1.getText().equals(jPasswordField2.getText()))
                 x.setPassword(jPasswordField1.getText());
+            else {
+                String pass = jPasswordField2.getText();
+                do {
+                    pass = JOptionPane.showInputDialog("Please enter again \"repeat password\": ");
+                    if (!jPasswordField1.getText().equals(pass)) {
+                        JOptionPane.showMessageDialog(null, "Password didn't match repeat password :(");
+                    }
+                } while (!jPasswordField1.getText().equals(pass));
+                x.setPassword(jPasswordField1.getText());
+            }
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));
             if(jComboBoxLevels.getSelectedItem().equals("Level 1"))
                 x.setLevel(1);

@@ -5,8 +5,12 @@
  */
 package Frames.Panels;
 
+import Classes.Assignment;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
+import static Classes.Assignment.Assignments;
 
 /**
  *
@@ -76,6 +80,19 @@ public class Assignment_ListPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[4];
 
+        Assignment c = new Assignment();
+        ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+
+        Assignments = c.listAssignmets();
+
+        for (Assignment x : Assignments) {
+            rowData[0] = x.getAName();
+            rowData[1] = x.getAType();
+            rowData[2] = x.getADueDate();
+            rowData[3] = x.dept.getDeptName();
+
+            model.addRow(rowData);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -83,3 +100,4 @@ public class Assignment_ListPanel extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
+//trying to push

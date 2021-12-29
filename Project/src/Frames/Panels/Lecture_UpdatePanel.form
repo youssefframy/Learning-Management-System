@@ -40,17 +40,17 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCreditHours" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLDate" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCname" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldLName" min="-2" pref="126" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldID" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldLNumber" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -86,17 +86,17 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldID" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLNumber" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCreditHours" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxDept" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -119,7 +119,7 @@
         <Property name="text" type="java.lang.String" value="Lecture ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldID">
+    <Component class="javax.swing.JTextField" name="jTextFieldLNumber">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -129,7 +129,7 @@
         <Property name="text" type="java.lang.String" value="Lecture name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCname">
+    <Component class="javax.swing.JTextField" name="jTextFieldLName">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelSucessOrFail">
       <Properties>
@@ -150,7 +150,7 @@
         <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCreditHours">
+    <Component class="javax.swing.JTextField" name="jTextFieldLDate">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -163,11 +163,12 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxDept">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="CS"/>
-            <StringItem index="1" value="IS"/>
-            <StringItem index="2" value="IT"/>
-            <StringItem index="3" value="SW"/>
+          <StringArray count="5">
+            <StringItem index="0" value="General"/>
+            <StringItem index="1" value="CS"/>
+            <StringItem index="2" value="IS"/>
+            <StringItem index="3" value="IT"/>
+            <StringItem index="4" value="SW"/>
           </StringArray>
         </Property>
       </Properties>

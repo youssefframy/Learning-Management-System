@@ -5,6 +5,9 @@
  */
 package Frames.Panels;
 
+import Classes.Course;
+import Classes.RegisteredCourse;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,6 +36,8 @@ public class Course_ListPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+
+        setBackground(new java.awt.Color(0, 153, 153));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,7 +68,7 @@ public class Course_ListPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addContainerGap())
@@ -74,7 +79,19 @@ public class Course_ListPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[4];
 
+        Course c = new Course();
+        ArrayList<Course> courses =new ArrayList<Course>();
 
+        courses = c.listCourses();
+
+        for (Course x : courses){
+            rowData[0] = x.getCId();
+            rowData[1] = x.getCName();
+            rowData[2] = x.getCreditHours();
+            rowData[3] = x.dept.getDeptName();
+
+            model.addRow(rowData);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
